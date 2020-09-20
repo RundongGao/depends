@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rgl/adjacency'
+require 'rgl/topsort'
 
 class Depends
   class CircularDependenceError < StandardError; end
@@ -16,5 +17,9 @@ class Depends
     raise CircularDependenceError unless new_dag.cycles.empty?
 
     @dag = new_dag
+  end
+
+  def list
+    @dag.topsort_iterator.to_a.reverse
   end
 end
