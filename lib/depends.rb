@@ -19,7 +19,7 @@ class Depends
     @dag = new_dag
   end
 
-  def list
+  def sort
     @dag.topsort_iterator.to_a.reverse
   end
 end
