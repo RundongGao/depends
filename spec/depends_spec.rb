@@ -6,8 +6,7 @@ require 'pry'
 require_relative 'shared/examples/handle_circular_dependencies'
 require_relative 'shared/examples/topological_sort'
 
-require_relative 'shared/contexts/very_simple_dependency'
-require_relative 'shared/contexts/simple_dependencies'
+require_relative 'shared/contexts/load_dependency_fixture'
 
 describe Depends do
   subject(:depends) { described_class.new }
@@ -21,41 +20,30 @@ describe Depends do
     end
 
     context 'with a very simple circular dependency' do
-      include_context 'very simple dependency'
-      include_examples 'handle circular dependency'
+      include_context 'with loading dependency fxiture', 'very_simple_dependency.json'
+      include_examples 'handle circular dependency', { depends_by: 'start', depends_on: 'end' }
     end
 
-    context 'with a simple circular dependency do' do
-      include_context 'simple dependencies'
-      include_examples 'handle circular dependency'
+    context 'with a simple circular dependency' do
+      include_context 'with loading dependency fxiture', 'simple_dependency.json'
+      include_examples 'handle circular dependency', { depends_by: 'start', depends_on: 'end' }
+    end
+
+    context 'with my morning routine dependency' do
+      include_context 'with loading dependency fxiture', 'morning_routine_dependency.json'
+      include_examples 'handle circular dependency', { depends_by: 'wake up', depends_on: 'have my coffee' }
     end
   end
 
   describe '#sort' do
     context 'with a simple dependency' do
-      dependences = [
-        { depends_on: 'start', depends_by: 'middle' },
-        { depends_on: 'middle', depends_by: 'end' }
-      ]
-
-      include_examples 'sort dependency in top-down manner', dependences
+      include_context 'with loading dependency fxiture', 'simple_dependency.json'
+      include_examples 'sort dependency in top-down manner', 'simple_dependency.json'
     end
 
     context 'with my morning routine dependency' do
-      dependences = [
-        { depends_by: 'make breakfast', depends_on: 'wake up' },
-        { depends_by: 'eat breakfast', depends_on: 'make breakfast' },
-        { depends_by: 'wash up', depends_on: 'wake up' },
-        { depends_by: 'clean kitchen', depends_on: 'make breakfast' },
-        { depends_by: 'wash the dishes', depends_on: 'eat breakfast' },
-        { depends_by: 'dress up', depends_on: 'wash up' },
-        { depends_by: 'walk my dog', depends_on: 'wash up' },
-        { depends_by: 'make coffee', depends_on: 'wake up' },
-        { depends_by: 'have my coffee', depends_on: 'make coffee' },
-        { depends_by: 'check my schedule', depends_on: 'have my coffee' }
-      ]
-
-      include_examples 'sort dependency in top-down manner', dependences
+      include_context 'with loading dependency fxiture', 'morning_routine_dependency.json'
+      include_examples 'sort dependency in top-down manner', 'morning_routine_dependency.json'
     end
   end
 end

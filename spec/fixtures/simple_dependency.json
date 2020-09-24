@@ -1,0 +1,10 @@
+[
+  {
+    "depends_on":"start",
+    "depends_by":"middle"
+  },
+  {
+    "depends_on":"middle",
+    "depends_by":"end"
+  }
+]
