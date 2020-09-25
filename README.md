@@ -1,8 +1,14 @@
 # depends
 ruby dependency management gem.
 
+Store dependencies in a graph struct, and sort them in topological order.
+No dpends_by will come be before it's depends_on.
 
 ## installation
+
+### Requirement
+
+- ruby => 2.4
 
 ### Manual
 `gem install depends`

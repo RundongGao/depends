@@ -17,6 +17,8 @@ class Depends
     raise CircularDependenceError unless new_dag.cycles.empty?
 
     @dag = new_dag
+
+    self
   end
 
   def sort
