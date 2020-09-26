@@ -8,7 +8,7 @@ require_relative 'shared/examples/topological_sort'
 
 require_relative 'shared/contexts/load_dependency_fixture'
 
-describe Dependz do
+describe Dependz::Client do
   subject(:dependz) { described_class.new }
 
   describe '#add' do
@@ -16,22 +16,22 @@ describe Dependz do
       # TODO
       # refactor this part after implement the list method
       # shouldn't need to expose RGL::Edge::DirectedEdge
-      expect(dependz.add(depends_by: 'end', depends_on: 'start').instance_variable_get(:@dag).edges.first).to eq(RGL::Edge::DirectedEdge.new('end', 'start'))
+      expect(dependz.add(depend_by: 'end', depend_on: 'start').instance_variable_get(:@dag).edges.first).to eq(RGL::Edge::DirectedEdge.new('end', 'start'))
     end
 
     context 'with a very simple circular dependency' do
       include_context 'with loading dependency fxiture', 'very_simple_dependency.json'
-      include_examples 'handle circular dependency', { depends_by: 'start', depends_on: 'end' }
+      include_examples 'handle circular dependency', { depend_by: 'start', depend_on: 'end' }
     end
 
     context 'with a simple circular dependency' do
       include_context 'with loading dependency fxiture', 'simple_dependency.json'
-      include_examples 'handle circular dependency', { depends_by: 'start', depends_on: 'end' }
+      include_examples 'handle circular dependency', { depend_by: 'start', depend_on: 'end' }
     end
 
     context 'with my morning routine dependency' do
       include_context 'with loading dependency fxiture', 'morning_routine_dependency.json'
-      include_examples 'handle circular dependency', { depends_by: 'wake up', depends_on: 'have my coffee' }
+      include_examples 'handle circular dependency', { depend_by: 'wake up', depend_on: 'have my coffee' }
     end
   end
 

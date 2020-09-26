@@ -1,6 +1,6 @@
 [
   {
-    "depends_on":"start",
-    "depends_by":"end"
+    "depend_on":"start",
+    "depend_by":"end"
   }
 ]
