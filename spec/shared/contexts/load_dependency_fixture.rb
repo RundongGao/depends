@@ -7,7 +7,7 @@ RSpec.shared_context 'with loading dependency fxiture', shared_context: :metadat
     dependency_fixtures = dependency_fixture(fixture_file)
 
     dependency_fixtures.each do |dependency|
-      dependz.add(depend_on: dependency['depends_on'], depend_by: dependency['depends_by'])
+      dependz.add(depend_on: dependency['depend_on'], depend_by: dependency['depend_by'])
     end
   end
 end

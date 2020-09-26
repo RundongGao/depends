@@ -1,15 +1,17 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'pry'
 
 require_relative 'shared/examples/handle_circular_dependencies'
-require_relative 'shared/examples/topological_sort'
-
 require_relative 'shared/contexts/load_dependency_fixture'
 
-describe Dependz::Client do
-  subject(:dependz) { described_class.new }
+class DependzTestClass
+  include ::Dependz::Base
+  include ::Dependz::Add
+end
+
+describe Dependz::Add do
+  let(:dependz) { DependzTestClass.new }
 
   describe '#add' do
     it 'adds a pair of dependency' do
@@ -32,18 +34,6 @@ describe Dependz::Client do
     context 'with my morning routine dependency' do
       include_context 'with loading dependency fxiture', 'morning_routine_dependency.json'
       include_examples 'handle circular dependency', { depend_by: 'wake up', depend_on: 'have my coffee' }
-    end
-  end
-
-  describe '#sort' do
-    context 'with a simple dependency' do
-      include_context 'with loading dependency fxiture', 'simple_dependency.json'
-      include_examples 'sort dependency in top-down manner', 'simple_dependency.json'
-    end
-
-    context 'with my morning routine dependency' do
-      include_context 'with loading dependency fxiture', 'morning_routine_dependency.json'
-      include_examples 'sort dependency in top-down manner', 'morning_routine_dependency.json'
     end
   end
 end

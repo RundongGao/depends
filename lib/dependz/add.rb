@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module Dependz
+  class CircularDependenceError < StandardError; end
+
   module Add
     def add(depend_by:, depend_on:)
       forms = depend_by.is_a?(Array) ? depend_by : [depend_by]
