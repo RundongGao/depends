@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'depends'
+require 'dependz'
 require_relative './helpers'
 
 RSpec.configure do |rspec|

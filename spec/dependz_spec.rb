@@ -8,15 +8,15 @@ require_relative 'shared/examples/topological_sort'
 
 require_relative 'shared/contexts/load_dependency_fixture'
 
-describe Depends do
-  subject(:depends) { described_class.new }
+describe Dependz do
+  subject(:dependz) { described_class.new }
 
   describe '#add' do
     it 'adds a pair of dependency' do
       # TODO
       # refactor this part after implement the list method
       # shouldn't need to expose RGL::Edge::DirectedEdge
-      expect(depends.add(depends_by: 'end', depends_on: 'start').edges.first).to eq(RGL::Edge::DirectedEdge.new('end', 'start'))
+      expect(dependz.add(depends_by: 'end', depends_on: 'start').instance_variable_get(:@dag).edges.first).to eq(RGL::Edge::DirectedEdge.new('end', 'start'))
     end
 
     context 'with a very simple circular dependency' do
