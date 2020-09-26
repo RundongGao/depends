@@ -1,0 +1,34 @@
+[
+  {
+    "depends_on":"whisk eggs",
+    "depends_by":"stir egge"
+  },
+  {
+    "depends_on":"wash and chop mushroom",
+    "depends_by":"stir mushroom"
+  },
+  {
+    "depends_on":"melt butter",
+    "depends_by":"stir mushroom"
+  },
+  {
+    "depends_on":"stir mushroom",
+    "depends_by":"put stired mushroom aside"
+  },
+  {
+    "depends_on":"add mushroom",
+    "depends_by":"put stired mushroom aside"
+  },
+  {
+    "depends_on":"add mushroom",
+    "depends_by":"stir egge"
+  },
+  {
+    "depends_on":"add cheese",
+    "depends_by":"add mushroom"
+  },
+  {
+    "depends_on":"add cheese",
+    "depends_by":"serve the omelette"
+  }
+]
