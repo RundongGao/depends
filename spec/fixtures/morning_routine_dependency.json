@@ -1,42 +1,51 @@
 [
   {
-    "depends_by":"make breakfast",
-    "depends_on":"wake up"
+    "depend_by":"make breakfast",
+    "depend_on":"wake up"
   },
   {
-    "depends_by":"eat breakfast",
-    "depends_on":"make breakfast"
+    "depend_by":"eat breakfast",
+    "depend_on":"make breakfast"
   },
   {
-    "depends_by":"wash up",
-    "depends_on":"wake up"
+    "depend_by":"wash up",
+    "depend_on":"wake up"
   },
   {
-    "depends_by":"clean kitchen",
-    "depends_on":"make breakfast"
+    "depend_by":"clean kitchen",
+    "depend_on":"make breakfast"
   },
   {
-    "depends_by":"wash the dishes",
-    "depends_on":"eat breakfast"
+    "depend_by":"wash the dishes",
+    "depend_on":"eat breakfast"
   },
   {
-    "depends_by":"dress up",
-    "depends_on":"wash up"
+    "depend_by":"dress up",
+    "depend_on":"wash up"
   },
   {
-    "depends_by":"walk my dog",
-    "depends_on":"wash up"
+    "depend_by":"walk my dog",
+    "depend_on":"wash up"
   },
   {
-    "depends_by":"make coffee",
-    "depends_on":"wake up"
+    "depend_by":"make coffee",
+    "depend_on":"wake up"
   },
   {
-    "depends_by":"have my coffee",
-    "depends_on":"make coffee"
+    "depend_by":"have my coffee",
+    "depend_on":"make coffee"
   },
   {
-    "depends_by":"check my schedule",
-    "depends_on":"have my coffee"
+    "depend_by":"check my schedule",
+    "depend_on":"have my coffee"
+  },
+  {
+    "depend_by":"Start the day!",
+    "depend_on": [
+      "have my coffee",
+      "wash up",
+      "eat breakfast",
+      "check my schedule"
+    ]
   }
 ]

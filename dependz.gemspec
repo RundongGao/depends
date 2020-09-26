@@ -6,10 +6,13 @@ Gem::Specification.new do |s|
   s.version     = '0.0.1'
   s.date        = '2020-09-17'
   s.summary     = 'ruby dependency management gem.'
-  s.description = "Store dependencies in a graph struct, and sort them in topological order. No dpends_by will come be before it's depends_on."
+  s.description = 'Topoligical sorting for dependent relations'
   s.authors     = ['Rundong Gao']
   s.email       = 'asphinx423@gmail.com'
-  s.files       = ['lib/dependz.rb']
+  s.files       = Dir[
+                   'lib/dependz/*.rb',
+                   'lib/dependz.rb'
+                  ]
   s.homepage    = 'https://github.com/RundongGao/depends'
   s.license     = 'MIT'
 

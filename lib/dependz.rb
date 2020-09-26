@@ -3,25 +3,14 @@
 require 'rgl/adjacency'
 require 'rgl/topsort'
 
-class Dependz
-  class CircularDependenceError < StandardError; end
+require 'dependz/add'
+require 'dependz/base'
+require 'dependz/sort_item'
 
-  def initialize
-    @dag = RGL::DirectedAdjacencyGraph.new
-  end
-
-  def add(depends_by:, depends_on:)
-    new_dag = @dag.dup
-    new_dag.add_edge(depends_by, depends_on)
-
-    raise CircularDependenceError unless new_dag.cycles.empty?
-
-    @dag = new_dag
-
-    self
-  end
-
-  def sort
-    @dag.topsort_iterator.to_a.reverse
+module Dependz
+  class Client
+    include Base
+    include Add
+    include SortItem
   end
 end
