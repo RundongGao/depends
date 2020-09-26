@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+
 
 require 'spec_helper'
 require 'pry'
@@ -44,6 +44,45 @@ describe Dependz do
     context 'with my morning routine dependency' do
       include_context 'with loading dependency fxiture', 'morning_routine_dependency.json'
       include_examples 'sort dependency in top-down manner', 'morning_routine_dependency.json'
+    end
+
+    context 'with cooking omlette dependency' do
+      include_context 'with loading dependency fxiture', 'cook_omelette_dependency.json'
+      include_examples 'sort dependency in top-down manner', 'cook_omelette_dependency.json'
+      it '' do
+        # use dg.instance_variable_get(:@vertices_dict)
+        # list all the roots vertices
+
+        require 'rgl/dot'
+        dg = dependz.instance_variable_get(:@dag).reverse
+        dg.write_to_graphic_file('jpg')
+        require 'rgl/traversal'
+        vis = RGL::DFSVisitor.new(dg)
+
+        level = 0
+        h = {}
+
+        vis.set_examine_vertex_event_handler do |v|
+          level += 1
+          if h[v].nil?
+            h[v] = level
+          else
+            h[v] = level if h[v] < level
+          end
+        end
+        vis.set_finish_vertex_event_handler  do |v|
+          level -= 1
+        end
+
+        dg.depth_first_visit('whisk eggs', vis) { |x| }
+        binding.pry
+        level = 0
+        dg.depth_first_visit('melt butter', vis) { |x| }
+        binding.pry
+        level = 0
+        dg.depth_first_visit('wash and chop mushroom', vis) { |x| }
+        binding.pry
+      end
     end
   end
 end

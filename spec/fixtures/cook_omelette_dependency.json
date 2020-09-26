@@ -16,19 +16,23 @@
     "depends_by":"put stired mushroom aside"
   },
   {
-    "depends_on":"add mushroom",
-    "depends_by":"put stired mushroom aside"
-  },
-  {
-    "depends_on":"add mushroom",
-    "depends_by":"stir egge"
-  },
-  {
-    "depends_on":"add cheese",
+    "depends_on":"put stired mushroom aside",
     "depends_by":"add mushroom"
   },
   {
+    "depends_on":"stir egge",
+    "depends_by":"add mushroom"
+  },
+  {
+    "depends_on":"stir egge",
+    "depends_by":"add cheese"
+  },
+  {
     "depends_on":"add cheese",
+    "depends_by":"serve the omelette"
+  },
+  {
+    "depends_on":"add mushroom",
     "depends_by":"serve the omelette"
   }
 ]
