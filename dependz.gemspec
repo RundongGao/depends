@@ -9,7 +9,10 @@ Gem::Specification.new do |s|
   s.description = 'Topoligical sorting for dependent relations'
   s.authors     = ['Rundong Gao']
   s.email       = 'asphinx423@gmail.com'
-  s.files       = ['lib/dependz.rb']
+  s.files       = Dir[
+                   'lib/dependz/*.rb',
+                   'lib/dependz.rb'
+                  ]
   s.homepage    = 'https://github.com/RundongGao/depends'
   s.license     = 'MIT'
 
