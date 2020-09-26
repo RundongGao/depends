@@ -3,7 +3,7 @@
 require 'rgl/adjacency'
 require 'rgl/topsort'
 
-class Depends
+class Dependz
   class CircularDependenceError < StandardError; end
 
   def initialize
