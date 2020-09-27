@@ -48,7 +48,18 @@ irb:0011 > my_morning.add(depend_by: 'check my schedule', depend_on: 'have my co
 irb:0012 > my_morning.add(depend_by: 'start my day', depend_on: ['have my coffee', 'dress up', 'check my schedule', 'eat breakfast', 'brush teeth and wash my face'])
 
 irb:0014 > my_morning.sort_item
-=> ["wake up", "brush teeth and wash my face", "make breakfast", "make coffee", "have my coffee", "check my schedule", "eat breakfast", "wash the dishes", "dress up", "start my day"]
+=> [
+     "wake up",
+     "brush teeth and wash my face",
+     "make breakfast",
+     "make coffee",
+     "have my coffee",
+     "check my schedule",
+     "eat breakfast",
+     "wash the dishes",
+     "dress up",
+     "start my day"
+   ]
 ```
 
 ### sort_level
