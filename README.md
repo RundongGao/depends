@@ -16,6 +16,11 @@ Topoligical sorting for dependent relations.
 
 ## usage
 
+### sort_item
+
+Produce a topologically sorted list of all item stored in the Dependz::Client instance.
+Meaning for every dependency A depends on B, A always appear after B in the `sort_item` result.
+
 ```
 irb:001 > require 'Dependz'
 
