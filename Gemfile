@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gemspec
 
 group :development, :test do
+  gem 'activesupport'
   gem 'json'
   gem 'pry'
   gem 'rspec'
