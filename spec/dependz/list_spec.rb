@@ -2,7 +2,6 @@
 
 require 'spec_helper'
 
-require 'shared/examples/topological_sort'
 require 'shared/contexts/load_dependency_fixture'
 
 class DependzTestClass
@@ -11,7 +10,7 @@ class DependzTestClass
   include Dependz::List
 end
 
-describe Dependz::SortItem do
+describe Dependz::List do
   let(:dependz) { DependzTestClass.new }
 
   describe '#list' do

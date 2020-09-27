@@ -7,6 +7,7 @@ require 'dependz/add'
 require 'dependz/base'
 require 'dependz/sort_item'
 require 'dependz/list'
+require 'dependz/sort_level'
 
 module Dependz
   class Client
@@ -14,5 +15,6 @@ module Dependz
     include Add
     include SortItem
     include List
+    include SortLevel
   end
 end
