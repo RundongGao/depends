@@ -1,0 +1,35 @@
+[
+  {
+    "depend_on":"whisk eggs",
+    "depend_by":"stir egge"
+  },
+  {
+    "depend_on":[
+      "wash and chop mushroom",
+      "melt butter"
+    ],
+    "depend_by":"stir mushroom"
+  },
+  {
+    "depend_on":"stir mushroom",
+    "depend_by":"put stired mushroom aside"
+  },
+  {
+    "depend_on":"put stired mushroom aside",
+    "depend_by":"add mushroom"
+  },
+  {
+    "depend_on":"stir egge",
+    "depend_by":[
+      "add mushroom",
+      "add cheese"
+    ]
+  },
+  {
+    "depend_on":[
+      "add cheese",
+      "add mushroom"
+    ],
+    "depend_by":"serve the omelette"
+  }
+] 

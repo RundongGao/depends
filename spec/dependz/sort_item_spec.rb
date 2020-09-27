@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 require 'shared/examples/topological_sort'
@@ -12,7 +14,7 @@ end
 describe Dependz::SortItem do
   let(:dependz) { DependzTestClass.new }
 
-  describe '#sort' do
+  describe '#sort_item' do
     context 'with a simple dependency' do
       include_context 'with loading dependency fxiture', 'simple_dependency.json'
       include_examples 'sort dependency in top-down manner'
