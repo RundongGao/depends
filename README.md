@@ -78,23 +78,23 @@ irb:001 > require 'Dependz'
 
 irb:002 > make_omelette = Dependz::Client.new
 
-irb:003 > make_omelette.add(depend_by: 'cook egge', depend_on: 'whisk eggs')
+irb:003 > make_omelette.add(depend_by: 'cook eggs', depend_on: 'whisk eggs')
 
-irb:004 > make_omelette.add(depend_by: 'stir mushroom', depend_on: 'wash and chop mushroom')
+irb:004 > make_omelette.add(depend_by: 'cook mushroom', depend_on: 'wash and chop mushroom')
 
-irb:005 > make_omelette.add(depend_by: 'put stired mushroom aside', depend_on: 'stir mushroom')
+irb:005 > make_omelette.add(depend_by: 'put cooked mushroom aside', depend_on: 'cook mushroom')
 
-irb:006 > make_omelette.add(depend_by: 'add cooked mushroom', depend_on: 'put stired mushroom aside')
+irb:006 > make_omelette.add(depend_by: 'add cooked mushroom', depend_on: 'put cooked mushroom aside')
 
-irb:007 > make_omelette.add(depend_by: ['add cooked mushroom', 'add cheese'], depend_on: 'cook egge')
+irb:007 > make_omelette.add(depend_by: ['add cooked mushroom', 'add cheese'], depend_on: 'cook eggs')
 
-irb:008 > make_omelette.add(depend_by: 'serve the omelette', depend_on: ['add cheese', 'add cooked mushroom'])
+irb:008 > make_omelette.add(depend_by: 'serve the omelette', depend_on: ['cook eggs', 'add cheese', 'add cooked mushroom'])
 
 irb:009 > make_omelette.sort_level
 => [
      ["whisk eggs", "wash and chop mushroom"],
-     ["cook egge", "stir mushroom"],
-     ["add cheese", "put stired mushroom aside"],
+     ["cook eggs", "cook mushroom"],
+     ["add cheese", "put cooked mushroom aside"],
      ["add cooked mushroom"],
      ["serve the omelette"]
    ] 
