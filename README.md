@@ -1,7 +1,7 @@
 # depends
 ruby dependency management gem.
 
-Topoligical sorting for dependent relations.
+Topoligical sorting for dependency relations.
 
 ## Requirement
 
@@ -94,9 +94,11 @@ irb:009 > make_omelette.sort_level
 ```
 
 #### Hypothetical use case
-Suppose we have a task execution service call MagicalRobotArmy that can perform tasks asynchronously in parallel. 
+Suppose we have a task processing service call MagicalRobotArmy that can perform tasks asynchronously in parallel. 
 
-Using the `make_omelette` object we create in the previous example, new I can my omelette prepared by the in MagicalRobotArmy paralell manner.
+Using the `make_omelette` object we create in the previous example, now I can have my omelette prepared by the MagicalRobotArmy paralell manner.
+
+In real application, you can swich MagicalRobotArmy with any background task processing service.
 
 ```
 plan = make_omelette.sort_level
