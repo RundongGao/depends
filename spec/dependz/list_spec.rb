@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'pry'
 
 require 'shared/examples/topological_sort'
 require 'shared/contexts/load_dependency_fixture'

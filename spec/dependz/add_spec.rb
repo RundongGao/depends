@@ -15,9 +15,6 @@ describe Dependz::Add do
 
   describe '#add' do
     it 'adds a pair of dependency' do
-      # TODO
-      # refactor this part after implement the list method
-      # shouldn't need to expose RGL::Edge::DirectedEdge
       expect(dependz.add(depend_by: 'end', depend_on: 'start').list.first).to eq({ depend_by: 'end', depend_on: 'start' })
     end
 
