@@ -2,8 +2,8 @@
 
 require 'spec_helper'
 
-require_relative 'shared/examples/handle_circular_dependencies'
-require_relative 'shared/contexts/load_dependency_fixture'
+require 'shared/examples/handle_circular_dependencies'
+require 'shared/contexts/load_dependency_fixture'
 
 class DependzTestClass
   include ::Dependz::Base
@@ -15,10 +15,7 @@ describe Dependz::Add do
 
   describe '#add' do
     it 'adds a pair of dependency' do
-      # TODO
-      # refactor this part after implement the list method
-      # shouldn't need to expose RGL::Edge::DirectedEdge
-      expect(dependz.add(depend_by: 'end', depend_on: 'start').instance_variable_get(:@dag).edges.first).to eq(RGL::Edge::DirectedEdge.new('end', 'start'))
+      expect(dependz.add(depend_by: 'end', depend_on: 'start').list.first).to eq({ depend_by: 'end', depend_on: 'start' })
     end
 
     context 'with a very simple circular dependency' do
