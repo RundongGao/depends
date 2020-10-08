@@ -3,10 +3,10 @@
 Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.4'
   s.name        = 'dependz'
-  s.version     = '0.1.1'
+  s.version     = '0.1.2'
   s.date        = '2020-09-17'
   s.summary     = 'ruby dependency management gem.'
-  s.description = 'Topoligical sorting for dependent relations'
+  s.description = 'A ruby gem for concurrent tasks scheduling and resolving dependencies based on directed acyclic graphs and modified topological sorting algorithm.'
   s.authors     = ['Rundong Gao']
   s.email       = 'asphinx423@gmail.com'
   s.files       = Dir[

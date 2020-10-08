@@ -1,7 +1,5 @@
 # dependz
-ruby dependency management gem.
-
-Topological sorting for dependency relations.
+A ruby gem for concurrent tasks scheduling and resolving dependencies based on directed acyclic graphs and modified topological sorting algorithm.
 
 ## Requirement
 
