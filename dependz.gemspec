@@ -3,7 +3,7 @@
 Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.4'
   s.name        = 'dependz'
-  s.version     = '0.1.0'
+  s.version     = '0.1.1'
   s.date        = '2020-09-17'
   s.summary     = 'ruby dependency management gem.'
   s.description = 'Topoligical sorting for dependent relations'

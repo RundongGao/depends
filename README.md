@@ -62,15 +62,15 @@ irb:0014 > my_morning.sort_item
    ]
 ```
 
-### sort_level
+### sort_depth
 
 Produce an array of arrary.
 
-Similar to `sort_item` but all items that are on the same level in Topology sort are grouped together.
+Similar to `sort_item` but all items that are on the same depth in Topology sort are grouped together.
 
-Items that does not depends on anything will appear on the first level. Items only depends on items on the first level will appear on the second level and so on.
+Items that does not depend on anything have 0 depth and will appear on the first array. And items that only depends on items with 0 depth have depth = 1 and will appear on second array and so on.
 
-On each level, all item are independ of each other.
+On each depth, all item are independ of each other.
 
 
 ```
@@ -90,7 +90,7 @@ irb:007 > make_omelette.add(depend_by: ['add cooked mushroom', 'add cheese'], de
 
 irb:008 > make_omelette.add(depend_by: 'serve the omelette', depend_on: ['cook eggs', 'add cheese', 'add cooked mushroom'])
 
-irb:009 > make_omelette.sort_level
+irb:009 > make_omelette.sort_depth
 => [
      ["whisk eggs", "wash and chop mushroom"],
      ["cook eggs", "cook mushroom"],
@@ -108,7 +108,7 @@ Using the `make_omelette` object we create in the previous example, now I can ha
 In real application, you can swich MagicalRobotArmy with any background task processing service.
 
 ```
-plan = make_omelette.sort_level
+plan = make_omelette.sort_depth
 
 loop do
   return if plan.empty?
